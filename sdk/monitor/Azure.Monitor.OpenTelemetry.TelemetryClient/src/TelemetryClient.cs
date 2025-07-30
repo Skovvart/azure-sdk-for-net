@@ -397,7 +397,7 @@ namespace Azure.Monitor.OpenTelemetry.TelemetryClient
 
             // Only "mssql" is mapped to the SQL type by the .net exporter today: https://github.com/Azure/azure-sdk-for-net/blob/7bcb4cd862cc692320c8692eba16321df21ea196/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/Internals/AzMonListExtensions.cs#L18
             // If the target is "oracle" for example, then the dependency type will be "oracle" (instead of "SQL") in Application Insights.
-            target ??= "unknown"; // Without this, if target is null then then .net exporter would not export the data method argumen
+            target ??= "unknown"; // Without this, if target is null then then .net exporter would not export the data method argument
             Activity.Current?.SetTag(SemanticConventions.AttributeDbSystem, target);
         }
 
