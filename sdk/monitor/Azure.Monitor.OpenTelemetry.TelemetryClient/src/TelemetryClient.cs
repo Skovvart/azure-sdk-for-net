@@ -68,7 +68,7 @@ namespace Azure.Monitor.OpenTelemetry.TelemetryClient
                 .UseAzureMonitorExporter(options => options.ConnectionString = connectionString);
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
-            StartHostedServicesAsync(serviceProvider).GetAwaiter().GetResult();
+            StartHostedServicesAsync(serviceProvider).GetAwaiter();
 
             loggerProvider = serviceProvider.GetRequiredService<LoggerProvider>();
             var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
